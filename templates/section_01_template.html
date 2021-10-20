@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="windows-1251">
+    <title>Title</title>
+</head>
+<style type="text/css">
+	font-face {
+    	font-family: DejaVuSerif; /* Гарнитура шрифта */
+    	src: url(fonts/DejaVuSerif.ttf); /* Путь к файлу со шрифтом */
+   }
+   * {
+    font-family: DejaVuSerif;
+   }
+   .centered {width: 50%, margin: 0 auto;}
+</style>
+<body>
+<div class="centered">
+    <h1 align="center">{{ data['title'] }}</h1>
+	<h4 align="center">{{ data['subtitle'] }}</h4>
+	<h3 align="center">{{ data['subtitle2'] }}</h3>
+</div>
+<table border=1 style="border-collapse:collapse;" align="center">
+<tr align="center">
+	<td colspan=3>Сведения об объекте</td>
+</tr>
+<tr>
+	<td colspan=3>&nbsp;</td>
+</tr>
+<tr align="center">
+	<td width="100">№ п/п</td>
+	<td min-width=200>Характеристики объекта</td>
+	<td>Описание характеристик</td>
+</tr>
+
+{% for k,v in data['characteristics'].items(): %}
+<tr>
+	<td width="16%" align="center">{{ loop.index }}</td>
+	<td width="42%">{{ k }}</td>
+	<td widht="42%">{{ v }}</td>
+</tr>
+{%endfor%}
+
+</table>
+
+
+</body>
+</html>

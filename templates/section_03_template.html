@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="windows-1251">
+    <title>Title</title>
+</head>
+<style type="text/css">
+	font-face {
+    	font-family: DejaVuSerif; /* Гарнитура шрифта */
+    	src: url(fonts/DejaVuSerif.ttf); /* Путь к файлу со шрифтом */
+   }
+   * {
+    font-family: DejaVuSerif;
+   }
+   .centered {width: 50%, margin: 0 auto;}
+</style>
+<body>
+<div class="centered">
+    <h3 align="center">Раздел 3</h3>
+</div>
+<table border=1 style="border-collapse:collapse;" align="center">
+<tr>
+	<td colspan=8>Сведения о местоположении измененных (уточненных) границ объекта </td>
+</tr>
+<tr>
+	<td colspan=8>1.Система координат Московская СК</td>
+</tr>
+<tr>
+	<td colspan=8>2.Сведения о характерных точках границ объекта</td>
+</tr>
+<tr>
+  <td rowspan="2">Обозначение характерных точек границ</td>
+  <td colspan="2">Существующие координаты, м</td>
+  <td colspan="2">Измененные (уточненные) координаты, м</td>
+  <td rowspan="2">Метод определения координат характерной точки</td>
+  <td rowspan="2">Средняя квадратическая погрешность положения характерной точки (Мt), м</td>
+  <td rowspan="2">Описание обозначения точки на местности (при наличии)</td>
+</tr>
+<tr align="center">
+  <td>X</td>
+  <td>Y</td>
+  <td>X</td>
+  <td>Y</td>
+</tr>
+<tr align="center">
+  {% for i in range(1, 9, 1): %}
+    {% if i >= 6: %}
+      <td width="15%">{{ i }}</td>
+    {% else %}
+      <td>{{ i }}</td>
+    {% endif %}
+  {%endfor%}
+</tr>
+{% for row in data: %}
+<tr align="center">
+  <td>{{ loop.index }}</td>
+  {%for col in row: %}
+    <td>{{ col }}</td>
+  {% endfor %}
+  <td>Картометрический метод</td>
+  <td>0.10</td>
+  <td>-</td>
+</tr>
+{%endfor%}
+</table>
+
+
+</body>
+</html>
