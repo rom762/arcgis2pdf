@@ -13,48 +13,41 @@
     font-family: DejaVuSerif;
    }
    .centered {width: 50%, margin: 0 auto;}
-
-	@media print {
-		#scores {
-			page-break-before: always;
-		}
-	}
 </style>
 <body>
 <div class="centered">
-    <h3 align="center">Раздел 3</h3>
+    <h3 align="center">Раздел 2</h3>
 </div>
-<table border=1 style="border-collapse:collapse;" align="center" cellpadding="2">
-<tr>
-	<td colspan=8>Сведения о местоположении измененных (уточненных) границ объекта </td>
+<table border=1 cellpadding="3" style="border-collapse:collapse;" align="center">
+<tr align="center">
+	<td colspan=8>Сведения о местоположении границ объекта </td>
 </tr>
 <tr>
-	<td colspan=8>1.Система координат Московская СК</td>
+	<td colspan=8>1.Система координат ПМСК Москвы</td>
 </tr>
-<tr>
+<tr align="center">
 	<td colspan=8>2.Сведения о характерных точках границ объекта</td>
 </tr>
 <tr>
   <td rowspan="2">Обозначение характерных точек границ</td>
   <td colspan="2">Существующие координаты, м</td>
-  <td colspan="2">Измененные (уточненные) координаты, м</td>
   <td rowspan="2">Метод определения координат характерной точки</td>
   <td rowspan="2">Средняя квадратическая погрешность положения характерной точки (Мt), м</td>
   <td rowspan="2">Описание обозначения точки на местности (при наличии)</td>
 </tr>
 <tr align="center">
-  <td>X</td>
-  <td>Y</td>
-  <td>X</td>
-  <td>Y</td>
+  <td min-width="20%">X</td>
+  <td min-width="20%">Y</td>
 </tr>
 <tr align="center">
-  {% for i in range(1, 9, 1): %}
-    {% if i >= 6: %}
-      <td width="15%">{{ i }}</td>
-    {% else %}
-      <td>{{ i }}</td>
-    {% endif %}
+  {% for i in range(1, 7, 1): %}
+		{% if i == 1: %}
+			<td width="10%">{{ i }}</td>
+		{% elif i > 3: %}
+			<td width="15%">{{ i }}</td>
+		{% else %}
+			<td>{{ i }}</td>
+		{% endif %}
   {%endfor%}
 </tr>
 {% for row in data[2]: %}
@@ -64,25 +57,23 @@
   {% endfor %}
 </tr>
 {%endfor%}
-<tr>
-  <td colspan=8>3. Сведения о характерных точках части (частей) границы объекта</td>
+
+<tr align="center">
+  <td colspan=6>3. Сведения о характерных точках части (частей) границы объекта</td>
 </tr>
 <tr align="center">
-  {% for i in range(1, 9, 1): %}
-    {% if i >= 6: %}
-      <td width="15%">{{ i }}</td>
-    {% else %}
+  {% for i in range(1, 7, 1): %}
       <td>{{ i }}</td>
-    {% endif %}
   {%endfor%}
 </tr>
 {% for row in data[3]: %}
 <tr align="center">
-	{%for col in row: %}
+  {%for col in row: %}
     <td>{{ col }}</td>
-	{% endfor %}
+  {% endfor %}
 </tr>
 {%endfor%}
+
 </table>
 
 
