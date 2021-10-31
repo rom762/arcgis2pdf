@@ -4,3 +4,7 @@ MarkupSafe==2.0.1
 pdfkit==0.6.1
 Pillow==8.4.0
 reportlab==3.6.2
+
+PyQt5~=5.15.4
+selenium~=4.0.0
+weasyprint~=53.3

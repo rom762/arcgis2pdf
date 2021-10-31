@@ -1,0 +1,22 @@
+font-face {
+    	font-family: DejaVuSerif; /* Гарнитура шрифта */
+    	src: url(fonts/DejaVuSerif.ttf); /* Путь к файлу со шрифтом */
+   }
+* {font-family: DejaVuSerif;}
+
+centered {
+    width: 50%,
+    margin: 0 auto;
+}
+
+
+@page {
+    size: A4;
+    margin: 0mm;
+}
+
+td div, th div{
+    page-break-inside: avoid;
+}
+tr { page-break-inside: avoid }
+thead, tfoot { display: table-row-group }
